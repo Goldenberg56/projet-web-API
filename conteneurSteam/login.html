@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class=" responsive" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171a21">
+
+<link rel="stylesheet" href="style.css" />
+
+<link href="https://community.akamai.steamstatic.com/public/shared/css/buttons.css?v=n-eRNszNIRMH&amp;l=french" rel="stylesheet" type="text/css" >
+
+<link href="https://community.akamai.steamstatic.com/public/shared/css/shared_global.css?v=aQFe0tVF2NIc&amp;l=french" rel="stylesheet" type="text/css" >
+<link href="https://community.akamai.steamstatic.com/public/css/globalv2.css?v=yNT7WtfAb_DV&amp;l=french" rel="stylesheet" type="text/css" >
+<link href="https://community.akamai.steamstatic.com/public/shared/css/login.css?v=yzcr2HgBgGZW&amp;l=french" rel="stylesheet" type="text/css" >
+
+
+<script type="text/javascript">
+	var __PrototypePreserve=[];
+	__PrototypePreserve[0] = Array.from;
+	__PrototypePreserve[1] = Function.prototype.bind;
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/javascript/prototype-1.7.js?v=.55t44gwuwgvw" ></script>
+<script type="text/javascript">
+	Array.from = __PrototypePreserve[0] || Array.from;
+	Function.prototype.bind = __PrototypePreserve[1] || Function.prototype.bind;
+</script>
+
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/javascript/jquery-1.11.1.min.js?v=.isFTSRckeNhC" ></script>
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/shared/javascript/tooltip.js?v=.9Z1XDV02xrml" ></script>
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/shared/javascript/shared_global.js?v=8EwAaxJN8VnP&amp;l=french" ></script>
+<script type="text/javascript">Object.seal && [ Object, Array, String, Number ].map( function( builtin ) { Object.seal( builtin.prototype ); } );</script><script type="text/javascript">$J = jQuery.noConflict();
+if ( typeof JSON != 'object' || !JSON.stringify || !JSON.parse ) { document.write( "<scr" + "ipt type=\"text\/javascript\" src=\"https:\/\/community.akamai.steamstatic.com\/public\/javascript\/json2.js?v=pmScf4470EZP&amp;l=french\" ><\/script>\n" ); };
+</script>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function(event) {
+				SetupTooltips( { tooltipCSSClass: 'community_tooltip'} );
+		});
+		</script><script type="text/javascript" src="https://community.akamai.steamstatic.com/public/shared/javascript/login.js?v=7OLC2RBe40ie&amp;l=french" ></script>
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/shared/javascript/shared_responsive_adapter.js?v=KatCyP8ZgK6b&amp;l=french" ></script>
+
+			<link rel="image_src" href="https://community.akamai.steamstatic.com/public/shared/images/responsive/share_steam_logo.png">
+
+	</head>
+
+
+
+<div class="containerGlob"  id="mainBody">
+	<div class="loginbox_content">
+
+		<div id="error_display" class="checkout_error" style="display: none;"></div>
+
+		<form name="logon" action="" id="login_form" style="display: none;">
+			<div class="login_row">
+				<div class="input_title">Nom du compte Steam:</div>
+				<input class="text_field" type="text" name="username" id="input_username"  placeholder="" value="">
+			</div>
+		</form>
+
+		<noscript><p>JavaScript doit être activé pour utiliser ce site</p></noscript>
+		<script>
+			document.getElementById('login_form').style.display = 'block';
+		</script>
+		<div class="login_btn_ctn">
+			<div id="login_btn_signin">
+				<button id="button_validate" name="buttonValidate" type="submit" class="btn_blue_steamui btn_medium login_btn">
+					<span>rechercher</span>
+				</button>
+
+			</div>
+		</div>
+
+		<div class="container" id="printContainer">
+			<div class="row">
+			  <div class="col-md-8">
+			    <table class="styled-table" id="tableInfo">
+
+			      <tbody id="tbody">
+
+			      </tbody>
+			    </table>
+			  </div>
+			</div>
+			<div id="avatar"></div>
+
+		</div>
+
+	</div>
+</div>
+
+<script src="build-table.js"></script>
+
+
+</html>
