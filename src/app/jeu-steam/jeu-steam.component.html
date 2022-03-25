@@ -1,0 +1,9 @@
+    <input [(ngModel)]="name" placeholder="nom du jeu" required>
+    <button (click)="setValue()">rechercher</button>
+    <ul>
+        <li *ngFor="let c of contenu; let index = index;">
+            <span>News {{ index+1 }}</span>
+            <span>:</span>
+            <span>{{ c }}</span>
+        </li>
+    </ul>

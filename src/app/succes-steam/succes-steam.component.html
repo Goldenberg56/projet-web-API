@@ -1,0 +1,7 @@
+<input [(ngModel)]="pseudo" #ctrl="ngModel" placeholder="pseudo" required>
+<input [(ngModel)]="jeu" placeholder="nom du jeu" required>
+<button (click)="setValue()">rechercher</button>
+<tr *ngFor="let h of html; let index = index;">
+    <td>{{h}}<br>{{myDate[index]}}</td>
+</tr>
+<tr><td>{{pourcent}}% des Succès obtenus</td></tr>

@@ -1,0 +1,12 @@
+<input [(ngModel)]="name" #ctrl="ngModel" placeholder="pseudo" required>
+<button (click)="setValue()">rechercher</button>
+<tr><td>Visibilité du compte : </td><td> {{ visibilite }} </td></tr>
+<tr><td>pseudo:</td><td>{{personaname}}</td></tr>
+<tr><td>nom d'utilisateur:</td><td>{{realname}}</td></tr>
+<tr><td>date de création:</td><td>{{date}}</td></tr>
+<tr><td>pays: </td><td>{{pays}}</td></tr>
+<tr><td>état : </td><td>{{etat}}</td></tr>
+<tr><td>nombre de jeu : </td><td>{{nbjeux}}</td></tr>
+<tr><td>nombre d'amis : </td><td>{{nbAmis}}</td></tr>
+<tr><td>nombre d'évaluation : </td><td>{{eval}}</td></tr>
+<img src= {{img}}> 

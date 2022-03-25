@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class=" responsive" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171a21">
+
+<link href="https://community.akamai.steamstatic.com/public/shared/css/buttons.css?v=n-eRNszNIRMH&amp;l=french" rel="stylesheet" type="text/css" >
+
+<link href="https://community.akamai.steamstatic.com/public/shared/css/shared_global.css?v=aQFe0tVF2NIc&amp;l=french" rel="stylesheet" type="text/css" >
+<link href="https://community.akamai.steamstatic.com/public/css/globalv2.css?v=yNT7WtfAb_DV&amp;l=french" rel="stylesheet" type="text/css" >
+<link href="https://community.akamai.steamstatic.com/public/shared/css/login.css?v=yzcr2HgBgGZW&amp;l=french" rel="stylesheet" type="text/css" >
+
+
+<script type="text/javascript">
+	var __PrototypePreserve=[];
+	__PrototypePreserve[0] = Array.from;
+	__PrototypePreserve[1] = Function.prototype.bind;
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/javascript/prototype-1.7.js?v=.55t44gwuwgvw" ></script>
+<script type="text/javascript">
+	Array.from = __PrototypePreserve[0] || Array.from;
+	Function.prototype.bind = __PrototypePreserve[1] || Function.prototype.bind;
+</script>
+
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/javascript/jquery-1.11.1.min.js?v=.isFTSRckeNhC" ></script>
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/shared/javascript/tooltip.js?v=.9Z1XDV02xrml" ></script>
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/shared/javascript/shared_global.js?v=8EwAaxJN8VnP&amp;l=french" ></script>
+<script type="text/javascript">Object.seal && [ Object, Array, String, Number ].map( function( builtin ) { Object.seal( builtin.prototype ); } );</script><script type="text/javascript">$J = jQuery.noConflict();
+if ( typeof JSON != 'object' || !JSON.stringify || !JSON.parse ) { document.write( "<scr" + "ipt type=\"text\/javascript\" src=\"https:\/\/community.akamai.steamstatic.com\/public\/javascript\/json2.js?v=pmScf4470EZP&amp;l=french\" ><\/script>\n" ); };
+</script>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function(event) {
+				SetupTooltips( { tooltipCSSClass: 'community_tooltip'} );
+		});
+		</script><script type="text/javascript" src="https://community.akamai.steamstatic.com/public/shared/javascript/login.js?v=7OLC2RBe40ie&amp;l=french" ></script>
+<script type="text/javascript" src="https://community.akamai.steamstatic.com/public/shared/javascript/shared_responsive_adapter.js?v=KatCyP8ZgK6b&amp;l=french" ></script>
+
+			<link rel="image_src" href="https://community.akamai.steamstatic.com/public/shared/images/responsive/share_steam_logo.png">
+
+	</head>
+
+
+
+
+<div class="containerGlob"  id="mainBody">
+	<div class="loginbox_content">
+
+		<div>
+		  <input type="checkbox" [(ngModel)]="!myVar2" [checked]="myVar1" 
+		   (change)="myVar1 = !myVar1; myVar2 = false; myVar3=false; myVar4=false; getValue('LeagueLegendsRP')" >
+		  <label for="ch1">League of Legends</label>
+		</div>
+		<div>
+		  <input type="checkbox" [(ngModel)]="!myVar1" [checked]="myVar2" 
+		   (change)="myVar2 = !myVar2; myVar1 = false; getValue('Steam')" id="ch4" name="ch4">
+		  <label for="ch1">Steam</label>
+		</div>
+		<div class="col-md-4 divhidetxtdpatient" *ngIf="myVar2">
+		  <input type="checkbox" [checked]="myVar3" (change)="myVar3= !myVar3" id="ch1" name="ch1">
+		  <label  id="l2" for="ch1">Jeu</label>
+		</div>
+		<div class="col-md-4 divhidetxtdpatient" *ngIf="myVar2">
+		  <input type="checkbox" [checked]="myVar4" (change)="myVar4= !myVar4" id="ch2" name="ch2">
+		  <label id="l1" for="ch1">Profil</label>
+		</div>
+		
+		<div class="col-md-4 divhidetxtdpatient" *ngIf="myVar1">
+			<lol-view></lol-view>
+			<div class="container">
+			  <ngx-twitter-timeline
+			  [data]="data"
+			  [opts]="{tweetLimit:20}"
+			  >
+			  </ngx-twitter-timeline>
+			  </div>
+		</div >
+		<div class="col-md-4 divhidetxtdpatient" *ngIf="myVar3 && !myVar4;">
+			<jeu-steam-view></jeu-steam-view>
+			<div class="container" id="test">
+			  <ngx-twitter-timeline
+			  [data]="data"
+			  [opts]="{tweetLimit:20}"
+			  >
+			  </ngx-twitter-timeline>
+			  </div>
+		</div >
+		<div class="col-md-4 divhidetxtdpatient" *ngIf="myVar4 && !myVar3;">
+			<steam-view></steam-view>
+			<div class="container">
+			  <ngx-twitter-timeline
+			  [data]="data"
+			  [opts]="{tweetLimit:20}"
+			  >
+			  </ngx-twitter-timeline>
+			  </div>
+		</div >
+		<div class="col-md-4 divhidetxtdpatient" *ngIf="myVar4 && myVar3">
+			<succes-steam-view></succes-steam-view>
+			<div class="container">
+			  <ngx-twitter-timeline
+			  [data]="data"
+			  [opts]="{tweetLimit:20}"
+			  >
+			  </ngx-twitter-timeline>
+			  </div>
+		</div >
+	</div>
+	
+</div>
+</html>
