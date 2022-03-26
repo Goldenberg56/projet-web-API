@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { shareReplay, switchMap } from 'rxjs';
 import { id } from '../steam/steam.component';
 
+
 export interface applist { //https://api.steampowered.com/ISteamApps/GetAppList/v2/
   applist: any;
   apps: any[];
@@ -42,10 +43,10 @@ export class JeuSteamComponent implements OnInit {
   constructor(private http: HttpClient) { }
   
   getAppList() {
-    return this.http.get<applist>('https://api.steampowered.com/ISteamApps/GetAppList/v2/');
+    return this.http.get<applist>('/ISteamApps/' +'GetAppList/v2/');
   }
   getAppNews(id:number) {
-    return this.http.get<appnews>('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid='+id+'&count=3&maxlength=300&format=json');
+    return this.http.get<appnews>('/ISteamNews/' + 'GetNewsForApp/v0002/?appid='+id+'&count=3&maxlength=300&format=json');
   }
 
   ngOnInit(): void {

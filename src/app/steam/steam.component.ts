@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { shareReplay, switchMap } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import * as Highcharts from 'highcharts';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers : new HttpHeaders( {'Content-Type':'application/json'})
+}
 
 export interface id { //https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=E6D5FC96D3120B016CA30AB04137D487&vanityurl=zizou
   id: number;
@@ -78,19 +81,19 @@ export class SteamComponent {
 
 
   getId(pseudo: string) {
-    return this.http.get<id>('http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key='+this.clefAPI+'&vanityurl='+pseudo);
+    return this.http.get<id>('/ISteamUser/'+'ResolveVanityURL/v0001/?key='+this.clefAPI+'&vanityurl='+pseudo);
   }
   getProfil(id: string) {
-    return this.http.get<Profil>('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key='+this.clefAPI+'&steamids='+id);
+    return this.http.get<Profil>('/ISteamUser/'+'GetPlayerSummaries/v0002/?key='+this.clefAPI+'&steamids='+id);
   }
   getJeux(id: string) {
-    return this.http.get<Jeux>('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key='+this.clefAPI+'&steamid='+id+'&format=json');
+    return this.http.get<Jeux>('/IPlayerService/'+'GetOwnedGames/v0001/?key='+this.clefAPI+'&steamid='+id+'&format=json');
   }
   getAmis(id: string) {
-    return this.http.get<Amis>('http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key='+this.clefAPI+'&steamid='+id+'&relationship=friend');
+    return this.http.get<Amis>('/ISteamUser/'+'GetFriendList/v0001/?key='+this.clefAPI+'&steamid='+id+'&relationship=friend');
   }
   getEvaluation(id: string) {
-    return this.http.get<Evaluation>('https://steamcommunity.com/comment/Profile/render/'+id+'/-1/');
+    return this.http.get<Evaluation>('/comment' + '/Profile/render/'+id+'/-1/');
   }
   setValue() {
     const id$ = this.getId(this.name).pipe(shareReplay(1));
@@ -155,8 +158,7 @@ export class SteamComponent {
         this.img = profil.response.players[0].avatarfull;
       })
     })
-    
-    
+
 
     
     }

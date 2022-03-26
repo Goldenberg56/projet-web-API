@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { shareReplay, switchMap } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as Highcharts from 'highcharts';
 
-export interface Summoner { //https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/WaZaKil?api_key=RGAPI-81ce5445-d2b4-4b07-99a7-21d3dceaa530
+
+
+export interface Summoner { //https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/WaZaKil?api_key=RGAPI-4e7ebf95-7a9d-499c-a1e5-67ffc26d8c46
   id: string;
   accountId: string;
   puuid: string;
@@ -137,21 +139,18 @@ export class LolComponent {
       if(masteries.length>0){
         this.champions[0] = "MEILLEURS CHAMPIONS -> ";
         for(let i=1; i<4; i++){
-          this.champions[0] = "MEILLEURS CHAMPIONS -> ";
           this.champions[i] = " CHAMPION n°"+(i)+"-> ";
           champions$.subscribe(champions=> {
             let j=-1;
             do
             {
               j++;
-              //debug
-              //console.log("i:"+i+" j:"+j)
               if(champions[j].id == masteries[i-1].championId){
                 this.champions[i] += " Nom : "+ champions[j].name;
               }
                 
               
-            }while(j<masteries.length && champions[j].id != masteries[i-1].championId)
+            }while(j<champions.length && champions[j].id != masteries[i-1].championId)
               
           }) 
           this.champions[i] += " Niveau : "+ masteries[i-1].championLevel;
@@ -167,9 +166,7 @@ export class LolComponent {
         match0$.subscribe(match=> {
           summoner$.subscribe(summoner=> {
             const sid = summoner.id;
-            console.log(" test  :")
             for(let i=0; i<match.info.participants.length; i++){
-              console.log(match.info.participants[i].summonerName)
               this.series[i] ={name: match.info.participants[i].summonerName ,data: [match.info.participants[i].visionScore] };
               if(match.info.participants[i].summonerId == sid){
                 this.series[i] ={name: match.info.participants[i].summonerName+ " (<- VOUS) " ,data: [match.info.participants[i].visionScore] }; 

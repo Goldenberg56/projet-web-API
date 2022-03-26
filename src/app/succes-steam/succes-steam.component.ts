@@ -1,6 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { shareReplay, switchMap } from 'rxjs';
+
+const httpOptions = {
+  headers : new HttpHeaders( {'Content-Type':'application/json'})
+}
 
 export interface id { //https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=E6D5FC96D3120B016CA30AB04137D487&vanityurl=zizou
   id: number;
@@ -40,13 +44,13 @@ export class SuccesSteamComponent  {
   constructor(private http: HttpClient) { }
 
   getId(pseudo: string) {
-    return this.http.get<id>('http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key='+this.clefAPI+'&vanityurl='+pseudo);
+    return this.http.get<id>('/ISteamUser/'+'ResolveVanityURL/v0001/?key='+this.clefAPI+'&vanityurl='+pseudo);
   }
   getStats(appid:number, steamid:number) {
-    return this.http.get<stats>('http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid='+appid+'&key='+this.clefAPI+'&steamid='+steamid);
+    return this.http.get<stats>('/ISteamUserStats/'+'GetPlayerAchievements/v0001/?appid='+appid+'&key='+this.clefAPI+'&steamid='+steamid);
   }
   getAppList() {
-    return this.http.get<applist>('https://api.steampowered.com/ISteamApps/GetAppList/v2/');
+    return this.http.get<applist>('/ISteamApps/'+'GetAppList/v2/');
   }
 
   setValue(){
@@ -92,6 +96,9 @@ export class SuccesSteamComponent  {
         })
       })
     })
+    if(this.pourcent == ""){
+      this.html[0] = "Erreur chargement (champ(s) invalide)";
+    }
   }
 
 }
